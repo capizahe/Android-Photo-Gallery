@@ -79,6 +79,7 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:text="PHOTO"
+                android:textColor="@android:color/white"
                 android:textAppearance="@style/TextAppearance.AppCompat.Button"
                 android:textStyle="bold" />
 
@@ -96,7 +97,8 @@
                 android:paddingRight="10dp"
                 android:text="VIDEO"
                 android:textAppearance="@style/TextAppearance.AppCompat.Button"
-                android:textStyle="bold" />
+                android:textStyle="bold" 
+                android:textColor="@android:color/white"/>
         </LinearLayout>
 
         <Button
@@ -111,7 +113,8 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="NEXT"
-            android:textStyle="bold" />
+            android:textStyle="bold" 
+            android:textColor="@android:color/white"/>
     </LinearLayout>
 
     <TextView
