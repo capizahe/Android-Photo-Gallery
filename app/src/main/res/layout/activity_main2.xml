@@ -28,6 +28,7 @@
             android:background="@android:color/holo_blue_dark"
             android:onClick="onReplayClick"
             android:text="REPLAY"
+            android:textColor="@android:color/white"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textStyle="bold"
