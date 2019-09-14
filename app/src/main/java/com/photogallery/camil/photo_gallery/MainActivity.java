@@ -2,6 +2,8 @@ package com.photogallery.camil.photo_gallery;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,11 +13,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     static final int REQUEST_IMAGE_CAPTURE =1;
+    static final int REQUEST_VIDEO_CAPTURE = 2;
     private ImageView imageView;
     private Button next_button;
     private Button prev_button;
@@ -24,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private Bitmap imageBitmap;
     private TextView n_images;
     private int count = 0;
+    private Uri video_url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +46,17 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(),"inicio camara",Toast.LENGTH_LONG).show();
         takePicture();
     }
+    public void onVideoClick(View view){
+        Toast.makeText(getApplicationContext(),"inicio camara",Toast.LENGTH_LONG).show();
+        recordVideo();
+    }
+
+    public void recordVideo(){
+        Intent videoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+        if(videoIntent.resolveActivity(getPackageManager())!= null) {
+            startActivityForResult(videoIntent,REQUEST_VIDEO_CAPTURE);
+        }
+        }
 
     public void onNextClick(View view){
         if(!images.isEmpty()){
@@ -80,9 +96,17 @@ public class MainActivity extends AppCompatActivity {
             Bundle extras = data.getExtras();
             this.imageBitmap = (Bitmap) extras.get("data");
             imageView.setImageBitmap(imageBitmap);
-            images.add(imageBitmap);
+            images.add(this.imageBitmap);
             this.count++;
             this.n_images.setText(this.count+"");
+        }
+        else if (requestCode == REQUEST_VIDEO_CAPTURE && resultCode == RESULT_OK) {
+
+            Intent video_activity = new Intent(this,Main2Activity.class);
+            video_activity.putExtra("video_url", data.getData().toString());
+            startActivity(video_activity);
+
+
         }
     }
 }

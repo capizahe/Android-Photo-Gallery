@@ -33,7 +33,7 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="374dp"
-        android:layout_height="wrap_content"
+        android:layout_height="73dp"
         android:layout_marginTop="45dp"
         android:layout_marginBottom="45dp"
         android:orientation="horizontal"
@@ -41,13 +41,14 @@
         android:paddingRight="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
 
         <Button
             android:id="@+id/prev"
-            android:layout_width="wrap_content"
+            android:layout_width="75dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -58,20 +59,45 @@
             android:text="PREV"
             android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/camera"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="136dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@android:color/holo_blue_dark"
-            android:onClick="onCameraClick"
+        <LinearLayout
+            android:layout_width="157dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
             android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:text="CAMERA"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button"
-            android:textStyle="bold" />
+            android:paddingTop="10dp"
+            android:paddingRight="10dp">
+
+            <Button
+                android:id="@+id/camera"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="136dp"
+                android:layout_height="23dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@android:color/holo_blue_dark"
+                android:onClick="onCameraClick"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="PHOTO"
+                android:textAppearance="@style/TextAppearance.AppCompat.Button"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/video"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="136dp"
+                android:layout_height="23dp"
+                android:layout_margin="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@android:color/holo_blue_dark"
+                android:onClick="onVideoClick"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="VIDEO"
+                android:textAppearance="@style/TextAppearance.AppCompat.Button"
+                android:textStyle="bold" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/next"
